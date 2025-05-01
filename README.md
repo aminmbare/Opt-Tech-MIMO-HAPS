@@ -22,46 +22,50 @@ This repository provides a comprehensive framework for simulating the performanc
 
 ---
 
-## 🌐 1. Overview
+## 🌐 1. Channel Model Overview
 
-In each time slot, the HAPS covers a selection of ground **areas**, each containing numerous users. Instead of modeling each user channel explicitly, the system approximates each area’s **effective channel** via **Monte Carlo sampling** of user locations.
+In each time slot, the HAPS covers a subset of ground **areas**, each potentially containing many users.  
+Rather than track each user’s channel in real-time, we approximate each **area**’s effective channel via **Monte Carlo sampling**.  
+This allows us to capture user-level fluctuations (e.g., *some are indoors, others outdoors, some enjoy LoS, others Non-LoS*) and then **average** their channel metrics to form a single representative channel per area.
 
-This approach captures:
-- User diversity (indoor/outdoor)
-- Propagation conditions (LoS/NLoS)
-- Environmental heterogeneity (urban, suburban, rural)
+For the equations governing *path loss*, *directivity gain*, and *small-scale fading*, please see:
 
-### Key Features:
-- **Path loss**, **fading**, and **antenna directivity gain**
-- **Area-level MIMO channel approximation**
-- **Beam-level capacity computation**
+- **Path Loss** – Refer to [1] and see the implementation in [`env/path_loss.py`](env/path_loss.py).
+- **Small-Scale Fading** – Refer to [2] and [3], and see code in [`env/small_scale_fading.py`](env/small_scale_fading.py).
+- **Antenna Directivity Gain** – Refer to [4] and the related code in [`env/Directivity_Gain.py`](env/Directivity_Gain.py).
 
 ---
 
-## 🎲 2. Monte Carlo Channel Modeling
 
-The modeling process includes:
+## 2. **Monte Carlo Idea**
 
 1. **Area Selection**  
-   Select M areas out of \(N_{\mathrm{areas}}\) total.
+   At each time step, we identify which areas (out of $N_{\mathrm{areas}}$ total) will be served by the HAPS.  
+   Suppose we choose $M$ such areas.
 
-2. **User Generation**  
-   For each selected area, generate 500–1000 synthetic user positions inside the polygon boundary.
+2. **Random User Locations**  
+   For each chosen area, we generate a **large number** of *synthetic user positions* (e.g., **500 to 1000**) scattered within that area’s boundary.  
+   This captures variability in distance, elevation angle, and building penetration conditions.
 
-3. **Environmental Labeling**  
-   - Each user is labeled as **indoor** or **outdoor** based on area-specific probabilities.  
-   - Each user link is classified as **LoS** or **NLoS** based on elevation angle (3GPP tables).
+3. **Environmental Factors**  
+   - **Indoor vs. Outdoor**:  
+     Each synthetic user is labeled **indoor** or **outdoor** with a probability specific to that area.  
+     Example: A **suburban** area might have a lower indoor probability than an **airport** or **industrial** complex.  
+   - **LoS vs. Non-LoS**:  
+     We assign each user’s link to *LoS* or *Non-LoS* based on the area’s elevation angle distribution or empirical tables (3GPP, etc.).
 
-4. **Channel Coefficients**  
-   For every user:
-   - Compute **path loss**, **small-scale fading**, and **antenna gain**
-   - Output a vector of channel coefficients \( h_{u,s} \)
+4. **Channel Computation**  
+   - For each synthetic user, we compute their **path loss** (including building entry if indoors), **small-scale fading** (Rician or Rayleigh), and **directivity gain** from the phased array.  
+   - This yields an individual *channel coefficient* $h_{u,s}$ for user $u$ in that area and antenna element $s$.
 
-5. **Area-Level Aggregation**  
-   Average all user channels to obtain one representative matrix \( H_m \) for area \( m \).
+5. **Averaging per Area**  
+   Once **all synthetic users** in area $m$ have their channel coefficients, we **average** these into a single “representative” channel matrix $H_m$.  
+   Hence, we no longer track each user individually at runtime — instead, we capture the **collective** effect of users in that area.
 
-6. **Capacity Calculation**  
-   Using beamforming and spatial multiplexing, compute the capacity per beam from \( H_m \).
+6. **Beamforming & Capacity**  
+   Each area is served by a **dedicated beam**, and capacity is estimated using these averaged channel coefficients.  
+   This *simplifies* the problem, yet reflects realistic user diversity, thanks to the Monte Carlo sampling.
+
 
 ---
 
