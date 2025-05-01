@@ -153,8 +153,3 @@ We welcome contributions! Open an issue or submit a pull request.
 
 ---
 
-## 🎉 8. Acknowledgements
-
-This project combines **communication theory** and **intelligent optimization** to explore how HAPS systems can be more effective, efficient, and adaptive in next-generation networks.
-
-Built with ❤️ for research and experimentation.
