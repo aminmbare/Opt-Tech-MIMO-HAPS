@@ -61,7 +61,7 @@ class MU_MIMO_CapacityCalculator:
         # Example power/transmit parameters
         self.P_tx = 33  # (dBm or dB scale) Transmit power
         self.G_rx = 0   # (dBi) Optional receive antenna gain
-        self.G_tx = 28  # (dBi) Optional transmit antenna gain
+        self.G_tx = 43  # (dBi) Optional transmit antenna gain
         
         self.N_x = N_x
         self.N_y = N_y
@@ -167,22 +167,22 @@ class MU_MIMO_CapacityCalculator:
                     los = False
 
             # Generate a random user coordinate inside the polygon
-            while True:
-                polygon = cluster['boundary']  # Shapely Polygon
-                min_x, min_y, max_x, max_y = polygon.bounds
-                rand_x = random.uniform(min_x, max_x)
-                rand_y = random.uniform(min_y, max_y)
-                user_point = Point(rand_x, rand_y)
-                if polygon.contains(user_point):
-                    user_coordinate = [user_point.x, user_point.y, 0.0]
-                    break  # Valid point found
+            #while True:
+            #    polygon = cluster['boundary']  # Shapely Polygon
+            #    min_x, min_y, max_x, max_y = polygon.bounds
+            #    rand_x = random.uniform(min_x, max_x)
+            #    rand_y = random.uniform(min_y, max_y)
+            #    user_point = Point(rand_x, rand_y)
+            #    if polygon.contains(user_point):
+            #        user_coordinate = [user_point.x, user_point.y, 0.0]
+            #        break  # Valid point found
 
             # Calculate directivity gain for this user
-            total_directivity_gain += self.directivity_gain.calculate_directivity_gain(user_coordinate,
-                                                                                       beam_centroid,
-                                                                                       beam_radius)
+            #total_directivity_gain += self.directivity_gain.calculate_directivity_gain(user_coordinate,
+            #                                                                           beam_centroid,
+            #                                                                           beam_radius)
             # Calculate path loss
-            total_path_loss += self.path_loss_calculator.calculate_path_loss(user_coordinate,
+            total_path_loss += self.path_loss_calculator.calculate_path_loss(beam_centroid,
                                                                              haps_coordinates,
                                                                              elevation_angle_deg,
                                                                              los,
@@ -197,9 +197,9 @@ class MU_MIMO_CapacityCalculator:
         # Averages
         small_scale_fading = total_small_scale_fading / N_users
         path_loss = total_path_loss / N_users
-        directivity_gain = total_directivity_gain / N_users
+        #directivity_gain = total_directivity_gain / N_users
         
-        return small_scale_fading, path_loss, directivity_gain
+        return small_scale_fading, path_loss, _
     
     def generate_capacities(self,
                             clusters_list: List[Dict],
@@ -245,9 +245,9 @@ class MU_MIMO_CapacityCalculator:
    
         # Compute path loss, directivity, and fading for each cluster
         for i, cluster in enumerate(clusters_list):
-            small_scale_fading, path_loss, directivity_gain = self.RSPR_cluster_paramters(cluster, haps_coordinates)
+            small_scale_fading, path_loss, _ = self.RSPR_cluster_paramters(cluster, haps_coordinates)
             # Combine all components => amplitude factor from directivity and path loss
-            amplitude_factor = np.sqrt(10 ** ((directivity_gain - path_loss) / 10))
+            amplitude_factor = np.sqrt(10 ** ((self.G_tx - path_loss) / 10))
             H_matrix[i] = amplitude_factor * small_scale_fading
       
         # MMSE beamforming matrix
