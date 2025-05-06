@@ -157,7 +157,7 @@ class MU_MIMO_CapacityCalculator:
         
         for _ in range(N_users):
             # Decide if user is indoor or not
-            if np.random.rand() < indoor_percentage:
+            if np.random.rand() < 1-indoor_percentage:
                 los = False
             else:
                 # Now decide LOS vs. NLOS
