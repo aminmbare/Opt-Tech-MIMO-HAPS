@@ -413,3 +413,45 @@
 2025-05-06 16:56:10,936 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
 2025-05-06 16:58:02,898 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
 2025-05-06 17:00:33,279 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 17:04:14,577 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -326.81362642900683, best pos: [0.01712376 0.02136925]
+2025-05-06 17:04:14,876 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 17:07:52,820 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -328.85907743803193, best pos: [0.01657983 0.02135151]
+2025-05-06 17:07:52,981 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 17:11:31,103 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -337.1531576164002, best pos: [0.01679312 0.02120201]
+2025-05-06 17:41:39,033 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 17:45:16,382 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -322.23962284937943, best pos: [0.01695818 0.02146324]
+2025-05-06 17:45:16,536 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 17:48:52,973 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -323.5035163734548, best pos: [0.01661013 0.02179405]
+2025-05-06 17:48:53,125 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 17:52:30,916 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -326.098259765432, best pos: [0.01699424 0.02140945]
+2025-05-06 18:24:04,196 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:27:40,480 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -321.33091743571083, best pos: [0.0171314 0.0197461]
+2025-05-06 18:27:40,632 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:31:19,004 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -327.85010711931193, best pos: [0.01691067 0.02115166]
+2025-05-06 18:31:19,161 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:34:58,290 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -324.99615724888616, best pos: [0.01692695 0.02138997]
+2025-05-06 18:34:58,443 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:38:36,177 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -321.22392545864545, best pos: [0.01568301 0.01747712]
+2025-05-06 18:38:36,331 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:40:48,121 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:43:20,963 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:46:59,617 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -322.7873621270609, best pos: [0.01715697 0.021451  ]
+2025-05-06 18:46:59,775 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:50:35,398 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -325.9574107986848, best pos: [0.01623641 0.0217811 ]
+2025-05-06 18:50:35,552 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:54:12,826 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -327.66935596310543, best pos: [0.01680307 0.02149872]
+2025-05-06 18:54:12,979 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 18:57:49,986 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -332.05944569370723, best pos: [0.01702586 0.02154493]
+2025-05-06 18:57:50,141 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 19:01:28,104 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -322.1384771252477, best pos: [0.01594373 0.02194068]
+2025-05-06 19:03:43,506 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 19:07:22,414 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -322.0425116555164, best pos: [0.01596599 0.01901307]
+2025-05-06 19:07:22,589 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 19:10:59,322 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -325.22698961163934, best pos: [0.01724843 0.02150742]
+2025-05-06 19:10:59,475 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 19:14:39,272 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -323.5785334530036, best pos: [0.0168593  0.02134284]
+2025-05-06 19:14:39,431 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 19:18:16,466 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -327.761006719784, best pos: [0.01678873 0.02132618]
+2025-05-06 19:18:16,620 - pyswarms.single.global_best - INFO - Optimize for 50 iters with {'c1': 0.7, 'c2': 0.7, 'w': 0.7}
+2025-05-06 19:45:40,533 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -329.95784951989845, best pos: [0.01676893 0.02156277]
+2025-05-07 12:13:45,294 - matplotlib.legend - WARNING - No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
